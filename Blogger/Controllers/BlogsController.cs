@@ -83,7 +83,8 @@ namespace Blogger.Controllers
       {
         Account userInfo = await HttpContext.GetUserInfoAsync<Account>();
         updatedBlog.CreatorId = userInfo.Id;
-        Blog blog = _blogService.Create(updatedBlog);
+        updatedBlog.Id = id;
+        Blog blog = _blogService.Edit(updatedBlog);
         return Ok(blog);
       }
       catch (Exception err)

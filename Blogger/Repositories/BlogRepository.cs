@@ -21,7 +21,7 @@ namespace Blogger.Repositories
       a.*,
       b.*
       FROM blogs b
-      JOIN accounts a ON rCreatorId = a.id
+      JOIN accounts a ON CreatorId = a.id
       ";
       return _db.Query<Profile, Blog, Blog>(sql, (Profile, blogs) =>
       {
@@ -61,11 +61,11 @@ namespace Blogger.Repositories
     {
       string sql = @"
       UPDATE blogs
-      SAET
+      SET
       title = @Title,
       body = @Body,
       imgUrl = @imgUrl,
-      published = @published,
+      published = @published
       WHERE id = @Id;
       ";
       _db.Execute(sql, updatedBlog);

@@ -36,6 +36,10 @@ namespace Blogger.Services
     internal Blog Edit(Blog updatedBlog)
     {
       Blog original = Get(updatedBlog.Id);
+      if (updatedBlog.CreatorId != original.CreatorId)
+      {
+        throw new Exception("you can't edit blogs that aren't your's!");
+      }
       updatedBlog.Title = updatedBlog.Title != null ? updatedBlog.Title : original.Title;
       updatedBlog.Body = updatedBlog.Body != null ? updatedBlog.Body : original.Body;
       updatedBlog.imgUrl = updatedBlog.imgUrl != null ? updatedBlog.imgUrl : original.imgUrl;

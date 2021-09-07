@@ -40,4 +40,12 @@ VALUES
     0,
     "6133ec636ec5298eb206f1d4"
   );
+INSERT INTO
+  comments (blog, body, creatorId)
+VALUES
+  (
+    4,
+    "test comment2",
+    "6133ebc21059309a7e9dc3e1"
+  );
 DROP TABLE comments

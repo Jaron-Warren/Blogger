@@ -14,11 +14,14 @@ namespace Blogger.Controllers
   public class BlogsController : ControllerBase
   {
     private readonly BlogService _blogService;
+    private readonly CommentService _commentService;
 
-    public BlogsController(BlogService blogService)
+    public BlogsController(BlogService blogService, CommentService commentService)
     {
       _blogService = blogService;
+      _commentService = commentService;
     }
+
     [HttpGet]
     public ActionResult<List<Blog>> Get()
     {
@@ -45,8 +48,10 @@ namespace Blogger.Controllers
         return BadRequest(err.Message);
       }
     }
+    //REVIEW why isn't this working?
+
     // [HttpGet("{id}/comments")]
-    // public ActionResult<Blog> Get(int id)
+    // public ActionResult<List<Comment>> Get(int id)
     // {
     //   try
     //   {

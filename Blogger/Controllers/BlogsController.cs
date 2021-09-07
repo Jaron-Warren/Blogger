@@ -35,6 +35,7 @@ namespace Blogger.Controllers
         return BadRequest(error.Message);
       }
     }
+    //REVIEW why are all network calls not async/await?
     [HttpGet("{id}")]
     public ActionResult<Blog> Get(int id)
     {

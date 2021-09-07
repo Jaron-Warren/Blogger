@@ -28,6 +28,17 @@ namespace Blogger.Services
       }
       return blog;
     }
+    //REVIEW help!!
+    // internal List<Blog> GetAccountBlogs(String id)
+    // {
+    //   List<Blog> blogs = _repo.GetAccountBlogs(id);
+    // if (blogs == null)
+    // {
+    //   throw new Exception("Invalid Id");
+    // }
+    //REVIEW why doesn't this work?
+    // return List<Blog> blogs;
+    // }
 
     internal Blog Create(Blog newBlog)
     {
